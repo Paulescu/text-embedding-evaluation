@@ -22,7 +22,7 @@
 Text embeddings are vector representations of raw text that you compute using an embedding model
 
 <div align="center">
-    <img src="./assets/embedding_model.gif" width='400' />
+    <img src="./assets/embedding_model.gif" width='500' />
 </div>
 
 These vectors representations are then used for downstream tasks, like
@@ -36,7 +36,7 @@ These vectors representations are then used for downstream tasks, like
 Retrieval (the “R” in RAG) is the task of finding the most relevant documents given an input query. This is one of the most popular usages of embeddings these days, and the one we focus on in this repository.
 
 <div align="center">
-    <img src="./assets/retrieval.gif" width='400' />
+    <img src="./assets/retrieval.gif" width='500' />
 </div>
 
 
@@ -93,6 +93,10 @@ You will need
 
 
 ## Wanna learn more Real World ML? 💡
-Join more than 15k subscribers to the Real-World ML Newsletter. Every Saturday morning.
+Join 15k builders to the [Real-World ML Newsletter](https://www.realworldml.net/subscribe).
 
-→ [Subscribe for FREE 🤗](https://www.realworldml.net/subscribe)
+Every Saturday morning.
+
+For FREE.
+
+→ [Subscribe TODAY 🤗](https://www.realworldml.net/subscribe)
