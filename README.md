@@ -9,15 +9,15 @@
 
 
 #### Table of contents
-* [Problem ❗](#problem-❗)
-* [Solution 🧠](#solution-🧠)
-* [External services 🛠️](#external-services-🛠️)
+* [Problem ❗](#problem)
+* [Solution 🧠](#solution)
+* [External services 🛠️](#external-services)
 * [Run the code 👨🏻‍💻](#run-the-code)
-* [Video lecture 🎬](#video-lecture-🎬)
-* [Wanna learn more real-time ML? 💡](#wanna-learn-more-real-world-ml-💡)
+* [Video lecture 🎬](#video-lecture)
+* [Wanna learn more real-time ML? 💡](#wanna-learn-more-real-world-ml)
 
 
-## Problem ❗
+## Problem
 
 Text embeddings are vector representations of raw text that you compute using an embedding model
 
@@ -48,7 +48,7 @@ There are many embedding models, both open and proprietary, so the question is:
 In this repository you can find an evaluation script that helps you find the right embedding model for your use case.
 
 
-## Solution 🧠
+## Solution
 
 To evaluate a model for retrieval using a particular dataset we will
 
@@ -62,7 +62,7 @@ To evaluate a model for retrieval using a particular dataset we will
 
 5. Finally log the results, so you know what worked best.
 
-## External services 🛠️
+## External services
 
 You will need
 
@@ -70,7 +70,7 @@ You will need
 
 - A [Qdrant](https://qdrant.to/cloud?utm_source=twitter&utm_medium=social&utm_campaign=pau-labarta-bajo-hybrid-cloud-launch) Vector DB with its corresponding URL and API key, which you can get for FREE by [signing up here](https://qdrant.to/cloud?utm_source=twitter&utm_medium=social&utm_campaign=pau-labarta-bajo-hybrid-cloud-launch)
 
-## Run the code 👨🏻‍💻
+## Run the code
 
 1. Create an `.env` file and paste your `OPENAI_API_KEY`, `QDRANT_URL` and `QDRANT_API_KEY`
     ```
@@ -89,10 +89,10 @@ You will need
     $ make run-evals
     ```
 
-## Video lecture 🎬
+## Video lecture
 
 
-## Wanna learn more Real World ML? 💡
+## Wanna learn more Real World ML?
 Join 15k builders to the [Real-World ML Newsletter](https://www.realworldml.net/subscribe).
 
 Every Saturday morning.
