@@ -9,13 +9,15 @@
 
 
 #### Table of contents
-* [Problem](#the-problem)
-* [Solution](#solution)
-* [Video lecture](#video-lecture)
-* [Wanna learn more real-time ML?](#wanna-learn-more-real-world-ml)
+* [Problem ❗](#problem-❗)
+* [Solution 🧠](#solution-🧠)
+* [External services 🛠️](#external-services-🛠️)
+* [Run the code 👨🏻‍💻](#run-the-code)
+* [Video lecture 🎬](#video-lecture-🎬)
+* [Wanna learn more real-time ML? 💡](#wanna-learn-more-real-world-ml-💡)
 
 
-## The problem
+## Problem ❗
 
 Text embeddings are vector representations of raw text that you compute using an embedding model
 
@@ -46,7 +48,7 @@ There are many embedding models, both open and proprietary, so the question is:
 In this repository you can find an evaluation script that helps you find the right embedding model for your use case.
 
 
-## Solution
+## Solution 🧠
 
 To evaluate a model for retrieval using a particular dataset we will
 
@@ -60,15 +62,15 @@ To evaluate a model for retrieval using a particular dataset we will
 
 5. Finally log the results, so you know what worked best.
 
-## Before running the code
+## External services 🛠️
 
 You will need
 
 - An [OpenAI](https://openai.com/blog/openai-api) API key, because ragas will be making calls to `GPT-3.5 Turbo` to evaluate the context precision and recall.
 
-- A [Qdrant]((https://qdrant.to/cloud?utm_source=twitter&utm_medium=social&utm_campaign=pau-labarta-bajo-hybrid-cloud-launch)) Vector DB with its corresponding URL and API key, which you can get for FREE by [signing up here](https://qdrant.to/cloud?utm_source=twitter&utm_medium=social&utm_campaign=pau-labarta-bajo-hybrid-cloud-launch)
+- A [Qdrant](https://qdrant.to/cloud?utm_source=twitter&utm_medium=social&utm_campaign=pau-labarta-bajo-hybrid-cloud-launch) Vector DB with its corresponding URL and API key, which you can get for FREE by [signing up here](https://qdrant.to/cloud?utm_source=twitter&utm_medium=social&utm_campaign=pau-labarta-bajo-hybrid-cloud-launch)
 
-## Let's run the code
+## Run the code 👨🏻‍💻
 
 1. Create an `.env` file and paste your `OPENAI_API_KEY`, `QDRANT_URL` and `QDRANT_API_KEY`
     ```
@@ -87,10 +89,10 @@ You will need
     $ make run-evals
     ```
 
-## Video lecture
+## Video lecture 🎬
 
 
-## Wanna learn more Real World ML?
+## Wanna learn more Real World ML? 💡
 Join more than 15k subscribers to the Real-World ML Newsletter. Every Saturday morning.
 
 → [Subscribe for FREE 🤗](https://www.realworldml.net/subscribe)
