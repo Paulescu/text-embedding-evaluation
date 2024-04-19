@@ -12,7 +12,7 @@
 * [Problem](#the-problem)
 * [Solution](#solution)
 * [Video lecture](#video-lecture)
-* [Wanna learn more real-time ML?](#wanna-learn-more-real-time-ml)
+* [Wanna learn more real-time ML?](#wanna-learn-more-real-world-ml)
 
 
 ## The problem
@@ -40,7 +40,7 @@ Retrieval (the “R” in RAG) is the task of finding the most relevant document
 
 There are many embedding models, both open and proprietary, so the question is:
 
-> What embedding model is best form my problem? 🤔
+> What embedding model is best for you problem? 🤔
 
 
 In this repository you can find an evaluation script that helps you find the right embedding model for your use case.
@@ -51,61 +51,44 @@ In this repository you can find an evaluation script that helps you find the rig
 To evaluate a model for retrieval using a particular dataset we will
 
 1. Load the model and your dataset from HuggingFace, with
-    - questions
-    - contexts, and
-    - correct answers
+    - `questions`
+    - `contexts`, and
+    - `correct answers`
 2. Embed the context into the Vector DB, in our case Qdrant.
-3. For each question retrieve the top `K` relevant documents from the Vector DB
-4. 
+3. For each question retrieve the top `K` relevant documents from the Vector DB, and
+4. Compare the overlap in information between the retrieved documents and the `correct answers`. We will use ragas, an open-source framework for RAG evalution, to compute `context precision` and `context recall`
 
-## Run the code
+5. Finally log the results, so you know what worked best.
 
+## Before running the code
 
-1. Create an `.env` file and fill in the credentials to connect to the serverles Hopsworks Feature Store
+You will need
+
+- An [OpenAI](https://openai.com/blog/openai-api) API key, because ragas will be making calls to `GPT-3.5 Turbo` to evaluate the context precision and recall.
+
+- A [Qdrant]((https://qdrant.to/cloud?utm_source=twitter&utm_medium=social&utm_campaign=pau-labarta-bajo-hybrid-cloud-launch)) Vector DB with its corresponding URL and API key, which you can get for FREE by [signing up here](https://qdrant.to/cloud?utm_source=twitter&utm_medium=social&utm_campaign=pau-labarta-bajo-hybrid-cloud-launch)
+
+## Let's run the code
+
+1. Create an `.env` file and paste your `OPENAI_API_KEY`, `QDRANT_URL` and `QDRANT_API_KEY`
     ```
     $ cp .env.example .env
     ```
 
-2. Build Docker image for each of the pipeline steps: `trade_producer`, `trade_to_ohlc` and `ohlc_to_feature_store`
+2. Create the virtual environment with Python Poetry
     ```
-    $ make build
-    ```
-
-3. Start the pipeline
-    ```
-    $ make start
+    $ make install
     ```
 
-3. Stop the pipeline locally
+3. Update the list of models and datasets you want to test in `config.yml`
+    
+4. Run the evaluations
     ```
-    $ make stop
+    $ make run-evals
     ```
 
 ## Video lecture
 
-```
-$ export OPENAI_API_KEY=your_key_goes_here
-```
-
-```
-$ poetry install
-```
-
-```
-
-```
-
-```
-$ poetry run python src/evaluate.py
-```
-
-```
-$ poetry run python src/evaluate.py \
-    --model_name 'sentence-transformers/all-mpnet-base-v2'
-    --dataset_name 'explodinggradients/ragas-wikiqa'
-    --top_k_to_retrieve 10
-    --n_rows 100
-```
 
 ## Wanna learn more Real World ML?
 Join more than 15k subscribers to the Real-World ML Newsletter. Every Saturday morning.

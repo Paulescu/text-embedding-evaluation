@@ -1,3 +1,8 @@
+install:
+	curl -sSL https://install.python-poetry.org | python3 -
+	poetry env use $(shell which python3.10) && \
+	poetry install
+
 run-evals:
 	poetry run python -m src.run_evaluations
 	
