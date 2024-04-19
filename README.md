@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>How to choose your embedding model?</h1>    
+    <h1>Which embedding model should you use?</h1>    
 </div>
 
 <div align="center">
@@ -47,6 +47,19 @@ In this repository you can find an evaluation script that helps you find the rig
 
 
 ## Solution
+
+To evaluate a model for retrieval using a particular dataset we will
+
+1. Load the model and your dataset from HuggingFace, with
+    - questions
+    - contexts, and
+    - correct answers
+2. Embed the context into the Vector DB, in our case Qdrant.
+3. For each question retrieve the top `K` relevant documents from the Vector DB
+4. 
+
+## Run the code
+
 
 1. Create an `.env` file and fill in the credentials to connect to the serverles Hopsworks Feature Store
     ```

@@ -20,6 +20,7 @@ logger = logging.getLogger(__name__)
 # Load environment variables from .env file
 load_dotenv(find_dotenv())
 
+
 class EvaluationResult(BaseModel):
     model_name: str
     dataset_name: str
@@ -75,7 +76,7 @@ def load_dataset_from_hugging_face(
     Returns:
         pd.DataFrame: DataFrame containing the dataset
     """
-    logger.info('Loading dataset')
+    logger.info(f'Loading dataset {hf_dataset_name} split {hf_dataset_split}')
     data = load_dataset(hf_dataset_name, split=hf_dataset_split)
     data = pd.DataFrame(data)
     if n_rows:
@@ -85,7 +86,7 @@ def load_dataset_from_hugging_face(
 
 
 def load_model_from_hugging_face(model_name: str) -> HuggingFaceEmbeddings:
-    logger.info('Downloading embeddings model from Hugging Face')
+    logger.info(f'Downloading embeddings model {model_name} from Hugging Face')
     embeddings = HuggingFaceEmbeddings(model_name=model_name)
     return embeddings
 
@@ -213,15 +214,19 @@ def run(
         n_rows (int): Number of rows to load from the dataset
     """
     # 1. Load a dataset and model from Hugging Face
-    questions, contexts, correct_answers = load_dataset_from_hugging_face(dataset_name, n_rows=n_rows)
+    questions, contexts, correct_answers = load_dataset_from_hugging_face(
+        dataset_name, n_rows=n_rows
+    )
     model = load_model_from_hugging_face(model_name)
 
-    # 2. Embed the documents into a vector store    
+    # 2. Embed the documents into a vector store
     vector_store, seconds_taken = embed(contexts, model)
     seconds_taken_to_embed = int(seconds_taken)
 
     # 3. Retrieve relevant documents for each question
-    retrieved_documents, seconds_taken = retrieve(questions, vector_store, top_k_to_retrive)
+    retrieved_documents, seconds_taken = retrieve(
+        questions, vector_store, top_k_to_retrive
+    )
     seconds_taken_to_retrieve = int(seconds_taken)
 
     # 4. Evaluate the performance of the retriever using RAGAS
@@ -247,6 +252,7 @@ def run(
         seconds_taken_to_embed=seconds_taken_to_embed,
         seconds_taken_to_retrieve=seconds_taken_to_retrieve,
     )
+
 
 if __name__ == '__main__':
     Fire(run)

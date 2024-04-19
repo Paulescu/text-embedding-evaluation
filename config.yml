@@ -1,0 +1,16 @@
+models:
+  # 109 million parameter
+  - sentence-transformers/all-mpnet-base-v2
+  
+  # 334 million parameter
+  # - 'Snowflake/snowflake-arctic-embed-l'
+  
+  # 7.11 billion parameter
+  # - 'Salesforce/SFR-Embedding-Mistral'
+
+datasets:
+  - explodinggradients/ragas-wikiqa
+
+# Optional field to specify the number of samples to be used from each dataset
+# We use it to speed up the evaluation process
+n_samples_per_dataset: 10

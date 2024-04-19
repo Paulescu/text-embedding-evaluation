@@ -1,5 +1,5 @@
-experiments:
-	poetry run python -m src.experiments
+run-evals:
+	poetry run python -m src.run_evaluations
 	
 lint:
 	@echo "Fixing linting issues..."
